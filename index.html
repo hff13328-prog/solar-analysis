@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>光伏发电数据分析</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f0f5f3;
+      color: #17342d;
+      font-family: system-ui, "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      margin-bottom: 24px;
+      padding: 28px;
+      border-radius: 16px;
+      background: #123d33;
+      color: white;
+    }
+
+    h1, h2, figure, dl, dd {
+      margin: 0;
+    }
+
+    header a {
+      color: #b8f5d8;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 12px 0 24px;
+    }
+
+    .metrics > div, figure, details {
+      padding: 18px;
+      border: 1px solid #d7e4df;
+      border-radius: 12px;
+      background: white;
+    }
+
+    dd {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 680px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    details {
+      margin-top: 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>光伏发电数据分析</h1>
+      <p>用 Python 将 CSV 和 Excel 光伏台账整理为发电量汇总和趋势图。</p>
+      <a href="https://github.com/hff13328-prog/solar-analysis">在 GitHub 查看项目代码</a>
+    </header>
+
+    <section>
+      <h2>样例结果</h2>
+      <dl class="metrics">
+        <div>
+          <dt>总发电量</dt>
+          <dd>575.0 kWh</dd>
+        </div>
+        <div>
+          <dt>日均发电量</dt>
+          <dd>191.7 kWh</dd>
+        </div>
+        <div>
+          <dt>有效天数</dt>
+          <dd>3 天</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section>
+      <h2>每日发电量趋势</h2>
+      <figure>
+        <img src="solar_trend_excel.png"
+             alt="11 月 1 日至 3 日的发电量依次为 200、240、135 千瓦时">
+        <figcaption>样例中，11 月 2 日发电量最高，为 240.0 kWh。</figcaption>
+      </figure>
+
+      <details>
+        <summary>查看计算方法和缺失数据</summary>
+        <p>每日发电量等于平均功率乘以运行时长。11 月 4 日缺少功率，日均发电量按其余 3 天计算。</p>
+      </details>
+    </section>
+  </main>
+</body>
+</html>
